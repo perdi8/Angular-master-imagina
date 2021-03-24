@@ -1,0 +1,48 @@
+
+<div class="container" >
+  <mat-card class="example-card">
+
+    <div>
+    <mat-card-header>
+      <mat-card-title class="login">Login</mat-card-title>
+    </mat-card-header>
+  </div>
+
+  <form #loginForm="ngForm">
+    <mat-card-content>
+      <div>
+      <mat-form-field appearance="fill" class="username">
+        <mat-label>Enter your username</mat-label>
+        <input name="username" matInput placeholder="Placeholder" [(ngModel)]="modelLogin.username" required #username="ngModel">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <div *ngIf="username.invalid && username.touched">
+        El nombre es obligatorio
+      </div>
+
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill" class="password">
+        <mat-label>Enter your password</mat-label>
+
+        <input name="password" matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="modelLogin.password" required minlength="6" #password="ngModel">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+        <div *ngIf="password.invalid && password.touched">la contraseña es obligatoria</div>
+    </div>
+    </mat-card-content>
+
+    <div>
+       <mat-card-actions>
+          <button class="btn-login" mat-raised-button color="primary" [disabled]="loginForm.invalid"  (click)="login()">Login</button>
+      </mat-card-actions>
+    </div>
+  </form>
+
+  </mat-card>
+</div>
+

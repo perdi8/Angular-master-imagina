@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-card {
+  width: 600px;
+  color: rgb(69, 147, 248);
+  background-color: rgb(197, 213, 223);
+}
+
+.username,
+.password,
+.btn-login {
+  width: 100%;
+}
+
+.login {
+  text-align: center;
+}
